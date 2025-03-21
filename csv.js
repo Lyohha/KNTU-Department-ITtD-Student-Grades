@@ -5,12 +5,14 @@ document.querySelector('[js-csv-form]').addEventListener('submit', function(even
     let $text = $this.querySelector('textarea');
     let text = $text.value;
 
-    let lines = text.split('\n');
+    let lines = text.replaceAll('\n ', ' ').split('~\n');
 
     let jsonArray = {};
 
     lines.forEach(function(line, index) {
-        let columns = line.split(';');
+        let columns = line.split('~');
+        if(columns.length == 1)
+            columns = line.split(';');
         if(columns.length == 1)
             columns = line.split(',');
         if(columns.length < 7)
@@ -19,6 +21,8 @@ document.querySelector('[js-csv-form]').addEventListener('submit', function(even
         let i = 2;
 
         let name = columns[0].replaceAll(' ', '').trim().toLowerCase() + columns[1].trim().replaceAll(' ', '').toLowerCase();
+
+        name = name.replaceAll('`', '').replaceAll('\'','').replaceAll('`','');
 
         // console.log(name);
 
@@ -32,7 +36,7 @@ document.querySelector('[js-csv-form]').addEventListener('submit', function(even
 
         // console.log(columns);
 
-        for(let i = 2; i < columns.length; i += 5) {
+        for(let i = 2; i < columns.length - 1; i += 5) {
             let number = parseInt(columns[i]);
             if(user.semesters.length < number) {
                 user.semesters.push([

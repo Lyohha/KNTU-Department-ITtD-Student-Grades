@@ -114,6 +114,8 @@ $(document).ready(function() {
             return;
         }
 
+        $('.student-name').html($first.val().trim() + ' ' + $second.val().trim() + ' ' +  $third.val().trim() + ' ' + $group.val().trim().replaceAll(' ', '').toUpperCase());
+
         fillTable(window.grades[value]);
         $(this).addClass('none');
     });

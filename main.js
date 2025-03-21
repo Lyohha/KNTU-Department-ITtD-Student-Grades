@@ -4,10 +4,9 @@ $(document).ready(function() {
     function fillTable(student) {
         let $table = $('.view-table');
 
-        let crossNumber = 0;
-
         student.semesters.forEach(function(value, index) {
             let semester = index + 1;
+            let crossNumber = 0;
 
             let year = 0;
 

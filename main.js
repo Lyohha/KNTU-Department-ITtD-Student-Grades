@@ -58,11 +58,18 @@ $(document).ready(function() {
                     grade2 = obj.grade < 60 ? 'не зараховано' : 'зараховано';
                 }
 
+                let credits = obj.credits / 30;
+
+                if(parseInt(credits) * 30 != obj.credits)
+                    credits = credits.toFixed(2);
+                else
+                    credits = credits.toFixed(0);
+
                 let $element = $(`
                     <tr>
                         <td>${crossNumber}</td>
                         <td class="align_left">${obj.name}</td>
-                        <td>${obj.credits}/${(obj.credits / 30).toFixed(2)}</td>
+                        <td>${obj.credits}/${credits}</td>
                         <td>${obj.type}</td>
                         <td>${grade2}</td>
                         <td>${obj.grade}</td>
@@ -77,6 +84,9 @@ $(document).ready(function() {
                 $element = $(`
                     <tr>
                         <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td class="table-grade">${grade.toFixed(2)}</td>
                     </tr>
                 `);

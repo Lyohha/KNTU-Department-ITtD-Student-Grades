@@ -62,7 +62,7 @@ $(document).ready(function() {
                     <tr>
                         <td>${crossNumber}</td>
                         <td class="align_left">${obj.name}</td>
-                        <td>${obj.credits}/${obj.credits / 30}</td>
+                        <td>${obj.credits}/${(obj.credits / 30).toFixed(2)}</td>
                         <td>${obj.type}</td>
                         <td>${grade2}</td>
                         <td>${obj.grade}</td>

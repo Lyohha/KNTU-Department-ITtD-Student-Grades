@@ -112,6 +112,8 @@ $(document).ready(function() {
 
         let value = first + second + third + group;
 
+        value = value.replaceAll('`', '').replaceAll('\'','').replaceAll('`','');
+
         // console.log(value);
 
         value = md5(value);

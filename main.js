@@ -20,9 +20,14 @@ $(document).ready(function() {
             $table.append($semester);
 
             let grade = 0;
+            let countGrades = 0;
 
             value.forEach(function(obj, j) {
+                if(obj.grade == 0)
+                    return;
+
                 crossNumber++;
+                countGrades++;
 
                 grade += obj.grade;
 
@@ -79,19 +84,19 @@ $(document).ready(function() {
                 $table.append($element);
             });
 
-            if(value.length > 0) {
-                grade /= value.length;
-                $element = $(`
-                    <tr>
-                        <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="table-grade">${grade.toFixed(2)}</td>
-                    </tr>
-                `);
-                $table.append($element);
-            }
+            // if(countGrades > 0) {
+            //     grade /= countGrades;
+            //     $element = $(`
+            //         <tr>
+            //             <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
+            //             <td></td>
+            //             <td></td>
+            //             <td></td>
+            //             <td class="table-grade">${grade.toFixed(2)}</td>
+            //         </tr>
+            //     `);
+            //     $table.append($element);
+            // }
         });
 
         $('.none').removeClass('none');

@@ -105,6 +105,7 @@
 
         .view-table tr td {
             text-align: center;
+            border-top: 1px solid #3C3E43;
         }
 
         .view-table tr td.align_left {
@@ -121,20 +122,8 @@
             font-weight: bold;
         }
 
-        .dekan {
-            margin-top: 50px;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .dekan td {
-            font-weight: bold;
-            text-align: center;
-        }
-
-        
-        .dekan td.align_left {
-            text-align: left;
+        .table-scroll {
+            overflow-x: auto;
         }
 
         footer {
@@ -143,6 +132,40 @@
 
         .none {
             display: none;
+        }
+
+        @media(max-width: 860px) {
+            h2 {
+                font-size: 16px;
+            }
+            
+        }
+
+        @media(max-width: 550px) {
+            .calculator-form {
+                padding: 5px;
+            }
+
+            .view-table {
+                font-size: 12px;
+            }
+            h1 {
+                font-size: 16px;
+            }
+            header div {
+                font-size: 16px;
+            }
+        }
+        @media(max-width: 400px) {
+            .input_line {
+                display: block;
+            }
+            .name-input {
+                width: 100%;
+            }
+            .submit-button {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -188,98 +211,94 @@
                     <button type="submit" class="submit-button">Отримати</button>
                 </div>
             </form>
-            <table class="view-table none">
-                    <tr>
-                        <th rowspan="2">№ з/п</th>
-                        <th rowspan="2">Найменування дисципліни</th>
-                        <th rowspan="2">Кількість годин/ кредитів</th>
-                        <th rowspan="2">Форма семестрового контролю</th>
-                        <th colspan="3">Оцінка</th>
-                    </tr>
-                    <tr>
-                        <th>за національною шкалою</th>
-                        <th>Кількість балів</th>
-                        <th>ЕCTS</th>
-                    </tr>
-                    <!-- <tr>
-                        <td colspan="7" class="table-year">
-                            1 курс, 1 семестр
-                        </td>
-                    </tr>
-                    <tr >
-                        <td colspan="7" class="table-year">
-                            (2021 - 2022 н.р.)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td class="align_left">Вища математика</td>
-                        <td>120/4</td>
-                        <td>екзамен</td>
-                        <td>відмінно</td>
-                        <td>90</td>
-                        <td>A </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td class="align_left">Вища математика</td>
-                        <td>120/4</td>
-                        <td>екзамен</td>
-                        <td>відмінно</td>
-                        <td>90</td>
-                        <td>A </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
-                        <td class="table-grade">89.3</td>
-                    </tr>
-                    <tr>
-                        <td colspan="7" class="table-year">
-                            1 курс, 2 семестр
-                        </td>
-                    </tr>
-                    <tr >
-                        <td colspan="7" class="table-year">
-                            (2021 - 2022 н.р.)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td class="align_left">Вища математика</td>
-                        <td>120/4</td>
-                        <td>екзамен</td>
-                        <td>відмінно</td>
-                        <td>90</td>
-                        <td>A </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td class="align_left">Вища математика</td>
-                        <td>120/4</td>
-                        <td>екзамен</td>
-                        <td>відмінно</td>
-                        <td>90</td>
-                        <td>A </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
-                        <td class="table-grade">89.3</td>
-                    </tr> -->
-            </table>
-            <table class="dekan none">
-                <tr>
-                    <td class="align_left">Декан факультету Інформаційних технологій та дизайну</td>
-                    <td>Віктор КОЗЕЛ</td>
-                </tr>
-            </table>
+            <div class="table-scroll">
+                <table class="view-table none">
+                        <tr>
+                            <th rowspan="2">№</th>
+                            <th rowspan="2">Найменування дисципліни</th>
+                            <th rowspan="2">Кількість годин/ кредитів</th>
+                            <th rowspan="2">Форма семестрового контролю</th>
+                            <th colspan="3">Оцінка</th>
+                        </tr>
+                        <tr>
+                            <th>за національною шкалою</th>
+                            <th>Кількість балів</th>
+                            <th>ЕCTS</th>
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="7" class="table-year">
+                                1 курс, 1 семестр
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="7" class="table-year">
+                                (2021 - 2022 н.р.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="align_left">Вища математика</td>
+                            <td>120/4</td>
+                            <td>екзамен</td>
+                            <td>відмінно</td>
+                            <td>90</td>
+                            <td>A </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="align_left">Вища математика</td>
+                            <td>120/4</td>
+                            <td>екзамен</td>
+                            <td>відмінно</td>
+                            <td>90</td>
+                            <td>A </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
+                            <td class="table-grade">89.3</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" class="table-year">
+                                1 курс, 2 семестр
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="7" class="table-year">
+                                (2021 - 2022 н.р.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="align_left">Вища математика</td>
+                            <td>120/4</td>
+                            <td>екзамен</td>
+                            <td>відмінно</td>
+                            <td>90</td>
+                            <td>A </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="align_left">Вища математика</td>
+                            <td>120/4</td>
+                            <td>екзамен</td>
+                            <td>відмінно</td>
+                            <td>90</td>
+                            <td>A </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="align_left table-grade">Середній бал успішності за семестр</td>
+                            <td class="table-grade">89.3</td>
+                        </tr> -->
+                </table>
+            </div>
         </main>
         <footer class="none">
             Витяг згенеровано автоматично за вимогою студента факультету та не є офіційним документ. Представлена інформація відображає успішність на момент формування звіту.
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="config.js?v=27.08.2024.23.56"></script>
+    <script src="config.js?v=21.03.2024.18.57"></script>
     <script src="md5.min.js?"></script>
-    <script src="main.js?v=27.08.2024.23.56"></script>
+    <script src="main.js?v=21.03.2024.18.57"></script>
 </body>
 </html>
